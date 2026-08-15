@@ -5,6 +5,8 @@
 
 装一次，一直生效。你不需要每次去调用它。
 
+![同一件事，两种汇报方式。左边是常见的 AI 回复：全是文件名和函数名，最后一句 "Tests pass"，而你根本无从核对。右边是同样的工作用大白话讲出来，更短，而且明确标注了到底亲眼看到了什么。](assets/before-after.svg)
+
 ---
 
 ## 问题在哪
@@ -174,8 +176,15 @@ English: [README.md](README.md)
 |---|---|---|
 | Output style | `output-styles/plain-english.md`，带 `force-for-plugin: true` | 直接改写 system prompt，对每一条回复都生效；装上就自动开启，不需要用户去选；上下文被压缩后依然存在。`keep-coding-instructions: true` 保证写代码的能力完全不受影响。 |
 | Skill | `skills/i-dont-read-code/` | 放深度内容：完整示例、反复出现的决策岔路、交接说明书、中文语感。需要时才加载。 |
-| Hook | `UserPromptSubmit` → `RULES.md` | 每一轮重新注入一张约 400 token 的规则卡。长对话到第 45 轮还能守住，靠的是这一层。 |
+| Hooks | `UserPromptSubmit`、`SessionStart`、`PostToolUse(+Failure)` | 每轮重新注入规则卡（长对话到第 45 轮还能守住）；每个新会话自动带上 `STATUS.md` 和 `PROJECT-CARD.md`，并提醒超过 7 天没回音的待办；记录真正跑过什么，让信任标记变得可核对。 |
 | 可移植副本 | `portable/` | Cursor rules、`AGENTS.md`、`CLAUDE.md`——给别的工具用，也给 hook 跑不起来的网页版用。 |
+
+`PostToolUse` 的输出只进调试日志、模型看不到，所以操作记录写在文件里，
+再由 `UserPromptSubmit`（它的输出模型是能看到的）把最近几条送回去。
+正是这一圈来回，让「我亲眼看着它跑通了」从一句承诺变成一条可查的引用。
+
+`scripts/check-drift.sh` 会检查 18 条规则是否都出现在 7 个层里，并且跑在 CI 上——
+因为「它们不会各自跑偏」这句话在 v0.1 里只是个愿望，而且当时就已经不成立了。
 
 只做成一个 Skill 是不够的。Skill 的正文是按需加载的，而且对话被压缩时，
 每个 Skill 只有前 5,000 token 会被重新挂回来，还要跟别的 Skill 共享 25,000 token 的额度，

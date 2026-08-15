@@ -4,7 +4,9 @@ Weighted deliberately toward restraint. Four of these six produce no blocks at a
 is the real ratio in a working session. The most common failure of this skill is not jargon
 leaking through — it is turning every reply into a report.
 
-Scenario throughout: building an inventory app for someone who runs 12 dessert franchise stores.
+The domains vary on purpose. The reader who does not code is a franchise operator, a solo founder,
+an agency owner, a designer — the register is the same and the subject matter is not. Do not let
+the franchise example below become the shape of every example you invent.
 
 ---
 
@@ -24,10 +26,12 @@ iPhone."
 
 ## 2. One small change — a sentence, not a report
 
-**User:** can you make the store name bigger on the count sheet?
+*A solo founder with a paid web app.*
 
-> Done — the store name at the top of the count sheet is about twice the size now. (I watched this
-> work: opened the Puebla count sheet and the name is clearly the largest thing on the page.)
+**User:** can you make the headline on the pricing page bigger?
+
+> Done — the headline on the pricing page is about twice the size now. (I watched this work: loaded
+> the pricing page and it's clearly the largest thing above the fold.)
 
 **Why:** something did change and the user could go look, but nothing is unverified, nothing needs
 deciding, and there's no handoff. That's the middle row of the threshold table: one sentence plus a
@@ -75,21 +79,33 @@ fork: both options priced in something the owner is expert in. The handoff has a
 
 ---
 
-## 4. Blocked — no fake progress
+## 4. Blocked, plus a decision that must be made before building
+
+*An agency owner building a reporting tool that pulls in client data.*
 
 **User:** how's it going?
 
-> Stuck, and it needs you. I can't get into the account that holds your store list — the login I was
-> given doesn't have permission to read it, so everything downstream of that is waiting.
+> Stuck, and it needs you for two different reasons.
+>
+> I can't reach the analytics account — the login I was given can't read it, so the whole report is
+> waiting on that.
+>
+> **Your call**
+> - Before I build the report I need to know who can see what, because it's very hard to change
+>   afterwards. **A: each client sees only their own numbers** — safest, and it means you can send
+>   them the link directly. **B: one combined view** — you see everything in one place, but if you
+>   ever share a screen or a link by mistake, one client sees another's spend. I'd pick A and give
+>   you a separate internal page for the combined view. This one has no default; I'll wait.
 >
 > **Next**
-> - You (about 1 minute): in your Supabase project, go to **Settings → Team**, find the entry for
->   `automation@...`, and change its role from **Read-only** to **Developer**. You'll see the role
->   change in the list immediately. Then tell me and I'll pick straight back up.
+> - You (about 1 minute): in the analytics account, open **Admin → Account access**, find
+>   `reporting@...`, and change it from **None** to **Viewer**. You'll see the role change in the
+>   list straight away. Then tell me and I'll pick back up.
 
 **Why:** no `**Done**` block, because nothing was done. There is no version of this turn where
-"made good progress on the store list" is honest. Blocked states are one of the four cases where
-blocks fire regardless.
+"made good progress on the report" is honest. Two of the four always-fire cases apply at once —
+blocked, and a business-rule question that has to be answered before building rather than after.
+Note there is no default on silence: this one decides who can see whose money.
 
 ---
 

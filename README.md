@@ -5,6 +5,8 @@ designers, operators and vibe coders who ship real software without reading it.
 
 You install it once. It stays on. You never invoke it.
 
+![The same piece of work, reported twice. On the left a typical AI reply full of file and function names ending in "Tests pass" — which you have no way to check. On the right the same work reported in plain English, shorter, with a tag naming exactly what was observed.](assets/before-after.svg)
+
 ---
 
 ## The problem
@@ -185,8 +187,15 @@ Four layers, because no single mechanism in Claude Code is genuinely always-on.
 |---|---|---|
 | Output style | `output-styles/plain-english.md`, with `force-for-plugin: true` | Modifies the system prompt and applies to every response. Auto-applies on install with no user action. Survives context compaction. `keep-coding-instructions: true` means engineering behaviour is untouched. |
 | Skill | `skills/i-dont-read-code/` | The depth: worked examples, the recurring decision forks, handoff recipes, Chinese register. Loads when relevant. |
-| Hook | `UserPromptSubmit` → `RULES.md` | Re-injects a ~400-token rule card each turn. This is what holds the line at turn 45 of a long session. |
+| Hooks | `UserPromptSubmit`, `SessionStart`, `PostToolUse(+Failure)` | Re-injects the rule card each turn (holds the line at turn 45); hands each new session `STATUS.md` and `PROJECT-CARD.md` and flags handoffs 7+ days stale; records what actually ran so trust tags can be checked. |
 | Portable copies | `portable/` | Cursor rules, `AGENTS.md`, `CLAUDE.md` — for other tools, and for web sessions where hooks don't run. |
+
+`PostToolUse` stdout goes to the debug log rather than to the model, so the action record is written
+to a file and its recent tail is fed back through `UserPromptSubmit`, whose stdout *is* visible.
+That round trip is what turns `(I watched this work: …)` from a promise into a citation.
+
+`scripts/check-drift.sh` asserts all 18 rules are present in all 7 layers, and runs in CI — because
+"they can't drift apart" was an aspiration in v0.1 and was already false.
 
 A skill on its own can't do this. Skill bodies load on demand, and when the conversation is
 compacted only the first 5,000 tokens of each skill are re-attached, sharing a 25,000-token budget

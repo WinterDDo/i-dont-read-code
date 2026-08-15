@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="720" viewBox="0 0 1240 720" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+  <title>The same piece of work, reported twice</title>
+  <desc>Left: a typical AI reply full of file and function names, ending in "Tests pass" — which the reader cannot verify. Right: the same work reported by i-dont-read-code, shorter, with a trust tag naming exactly what was observed.</desc>
+
+  <defs>
+    <style>
+      .bg      { fill: #ffffff; }
+      .card    { fill: #fbfbfa; stroke: #e3e1dc; stroke-width: 1.5; }
+      .cardhi  { fill: #f7fbf8; stroke: #cfe6d6; stroke-width: 1.5; }
+      .h1      { fill: #1a1917; font-size: 26px; font-weight: 700; }
+      .sub     { fill: #6b6862; font-size: 15px; }
+      .tag     { font-size: 12px; font-weight: 700; letter-spacing: .09em; }
+      .tagbad  { fill: #a1442f; }
+      .taggood { fill: #2f7d4f; }
+      .mono    { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace; font-size: 13px; fill: #4a4843; }
+      .body    { font-size: 14.5px; fill: #26251f; }
+      .bold    { font-size: 14.5px; fill: #1a1917; font-weight: 700; }
+      .dim     { font-size: 13.5px; fill: #7c7973; }
+      .good    { font-size: 13.5px; fill: #2f7d4f; }
+      .foot    { font-size: 14px; fill: #56534d; }
+      .footb   { font-size: 14px; fill: #1a1917; font-weight: 600; }
+      .rulebad { stroke: #d9a091; stroke-width: 2.5; }
+      .rulegd  { stroke: #7fb894; stroke-width: 2.5; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1240" height="720" rx="0"/>
+
+  <text class="h1" x="44" y="52">The same piece of work, reported twice.</text>
+  <text class="sub" x="44" y="80">One of these you can act on. Both are equally true.</text>
+
+  <!-- ── BEFORE ───────────────────────────────────────────────── -->
+  <rect class="card" x="44" y="106" width="558" height="470" rx="10"/>
+  <line class="rulebad" x1="44" y1="106" x2="44" y2="576" stroke-linecap="round"/>
+  <text class="tag tagbad" x="72" y="138">BEFORE</text>
+
+  <text class="mono" x="72" y="176">I've implemented the low-stock alerting feature.</text>
+  <text class="mono" x="72" y="198">Added a `threshold` column to `inventory_items`</text>
+  <text class="mono" x="72" y="220">via a new Prisma migration, created</text>
+  <text class="mono" x="72" y="242">`checkLowStock()` in src/lib/inventory/alerts.ts,</text>
+  <text class="mono" x="72" y="264">and wired it to a Vercel Cron job. Also</text>
+  <text class="mono" x="72" y="286">refactored `InventoryTable` and added an RLS</text>
+  <text class="mono" x="72" y="308">policy scoping reads to `store_id`.</text>
+
+  <rect x="64" y="332" width="518" height="34" rx="6" fill="#fbeeea"/>
+  <text class="mono" x="72" y="355" fill="#a1442f" font-weight="700">Tests pass.</text>
+  <text class="dim" x="168" y="355" fill="#a1442f">← you have no way to check this</text>
+
+  <text class="mono" x="72" y="396">You'll need to run the migration and set</text>
+  <text class="mono" x="72" y="418">CRON_SECRET. Let me know if you want Resend</text>
+  <text class="mono" x="72" y="440">or SendGrid.</text>
+
+  <line x1="72" y1="472" x2="574" y2="472" stroke="#e3e1dc" stroke-width="1"/>
+  <text class="dim" x="72" y="500">Every word is true.</text>
+  <text class="dim" x="72" y="522">Nothing in it is checkable, actionable,</text>
+  <text class="dim" x="72" y="544">or answerable by someone who can't read code.</text>
+
+  <!-- ── AFTER ────────────────────────────────────────────────── -->
+  <rect class="cardhi" x="638" y="106" width="558" height="470" rx="10"/>
+  <line class="rulegd" x1="638" y1="106" x2="638" y2="576" stroke-linecap="round"/>
+  <text class="tag taggood" x="666" y="138">AFTER</text>
+
+  <text class="bold" x="666" y="176">Done</text>
+  <text class="body" x="666" y="200">• Every item on the count sheet now has a</text>
+  <text class="body" x="678" y="222">"minimum." When a store drops below it,</text>
+  <text class="body" x="678" y="244">the item turns red.</text>
+
+  <rect x="658" y="258" width="518" height="56" rx="6" fill="#eef7f1"/>
+  <text class="good" x="678" y="279">(I watched this work: set milk powder to 10</text>
+  <text class="good" x="678" y="301">for Puebla, entered a count of 6, it turned red.)</text>
+
+  <text class="bold" x="666" y="344">Next</text>
+  <text class="body" x="666" y="368">• You (3 min — only you have the database</text>
+  <text class="body" x="678" y="390">login): open supabase.com → SQL Editor,</text>
+  <text class="body" x="678" y="412">paste the line below, press Run.</text>
+  <text class="mono" x="678" y="440" fill="#2f7d4f">You'll see: Success. No rows returned</text>
+
+  <line x1="666" y1="472" x2="1168" y2="472" stroke="#cfe6d6" stroke-width="1"/>
+  <text class="dim" x="666" y="500">Shorter than the version on the left.</text>
+  <text class="dim" x="666" y="522">Every line is something you can do,</text>
+  <text class="dim" x="666" y="544">or go and see for yourself.</text>
+
+  <!-- ── FOOTER ───────────────────────────────────────────────── -->
+  <text class="footb" x="44" y="626">"The tests passed" is never the same as "I watched it work."</text>
+  <text class="foot" x="44" y="652">Every AI blurs those two together. This is the one that stops.</text>
+
+  <text class="foot" x="44" y="692" fill="#7c7973">i-dont-read-code — plain-English mode for Claude Code, Cursor, Codex &amp; Windsurf</text>
+</svg>
