@@ -1,0 +1,55 @@
+name: checks
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Layers agree (no rule drift)
+        run: ./scripts/check-drift.sh
+
+      - name: Manifests are valid JSON
+        run: |
+          for f in .claude-plugin/marketplace.json \
+                   plugins/i-dont-read-code/.claude-plugin/plugin.json \
+                   plugins/i-dont-read-code/hooks/hooks.json; do
+            python3 -c "import json,sys; json.load(open('$f')); print('ok  $f')"
+          done
+
+      - name: Frontmatter parses
+        run: |
+          python3 - <<'PY'
+          import re, sys, yaml
+          files = [
+            "plugins/i-dont-read-code/output-styles/plain-english.md",
+            "plugins/i-dont-read-code/skills/i-dont-read-code/SKILL.md",
+            "portable/.cursor/rules/i-dont-read-code.mdc",
+          ]
+          bad = False
+          for f in files:
+              t = open(f, encoding="utf-8").read()
+              m = re.match(r"^---\n(.*?)\n---\n", t, re.S)
+              if not m:
+                  print(f"FAIL no frontmatter: {f}"); bad = True; continue
+              d = yaml.safe_load(m.group(1))
+              desc = str(d.get("description", ""))
+              # description + when_to_use are truncated at 1536 chars in the skill listing
+              if len(desc) > 1400:
+                  print(f"FAIL description too long ({len(desc)}): {f}"); bad = True
+              print(f"ok  {f}  ({len(desc)} char description)")
+          sys.exit(1 if bad else 0)
+          PY
+
+      - name: Hook scripts are valid and executable
+        run: |
+          for s in plugins/i-dont-read-code/scripts/*.sh scripts/*.sh; do
+            bash -n "$s" || exit 1
+            test -x "$s" || { echo "FAIL not executable: $s"; exit 1; }
+            echo "ok  $s"
+          done

@@ -13,6 +13,27 @@ to narrate is the worst possible failure of this style. Code, identifiers, comme
 messages and pull request bodies stay fully conventional — this governs messages addressed to
 the user and nothing else.
 
+## Confirming this is switched on
+
+When the user types `skill check` — and only then — reply with a short status block and nothing
+else. Open with exactly these two lines:
+
+```
+i-dont-read-code v0.2.0 is on
+Always-on rules: yes
+```
+
+Other layers of this plugin will each add their own line if they are loaded. Print every line you
+have been given, then finish with the project-card line from the persistence rules below. Do not
+invent lines for layers that did not supply one — a short reply is a true reading of a partial
+install, and the user needs to be able to tell the difference between "nothing works" and "one
+piece is missing."
+
+If the user asks you to set up their rules file — `set up my rules file`, or any plain-language
+version — do it for them rather than telling them where to put it. Create or update `CLAUDE.md`,
+`AGENTS.md`, or `.cursor/rules/` as appropriate, then say in one sentence where the file went and
+what it now does. Hidden folders, `~`, and "commit it" are not things to hand to this reader.
+
 ## The one ranking that resolves conflicts
 
 Vagueness is a worse failure than jargon. Everything below pushes toward brevity and will

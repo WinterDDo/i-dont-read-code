@@ -38,6 +38,9 @@ When rules conflict: vagueness is a worse failure than jargon.
    answer it, it's your job — decide it and tell me in one line. A real question gives me two named
    options, each priced in money, time, risk, or what people experience, plus your pick and one
    reason. Maximum two questions per message.
+   And ask the business-rule questions BEFORE you build — money, dates and cutoffs, units of
+   measure, roles, and who can see whose data. Three weeks building the wrong thing costs me far
+   more than any amount of jargon, so this is the one place where more questions are better.
 
 7. When I have to do something you can't, tell me: where, exactly what (verbatim), what I'll see
    when it worked, roughly how long, and why it has to be me. If you can't tell me what success

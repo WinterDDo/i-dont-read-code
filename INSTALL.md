@@ -2,6 +2,8 @@
 
 Pick the tool you use. You don't need to understand any of this to do it.
 
+中文版：[INSTALL.zh-CN.md](INSTALL.zh-CN.md)
+
 ---
 
 ## Claude Code — the recommended way
@@ -13,32 +15,50 @@ Type these two lines into Claude Code, one after the other:
 /plugin install i-dont-read-code@i-dont-read-code
 ```
 
-The second one opens a small menu asking where to install it. **User** (the default) is the right
-answer if you want it in all your projects.
+(The name looks doubled because it's `plugin-name@where-it-came-from`. It isn't a typo.)
 
-If the summary at the end says `Run /reload-plugins to activate.`, type that too.
+The second line opens a small menu asking where to install it. **User** — the default — is right if
+you want it in all your projects.
 
-**Check it worked:** start a new chat and type exactly:
+When it finishes it prints a short summary. If that summary contains the words
+`Run /reload-plugins to activate.`, type `/reload-plugins` too. If it doesn't say that, skip it.
+
+**Now check it worked.** Start a new chat and type exactly:
 
 ```
 skill check
 ```
 
-It should reply `i-dont-read-code is on` and nothing else. If it says anything else, it isn't
-installed — the plugin didn't load, and everything else you see will just be normal Claude.
+You should get back something like this:
 
-Nothing else to do. It's on for every project and every new chat.
+```
+i-dont-read-code v0.2.0 is on
+Always-on rules: yes
+Per-turn reminder: on
+Deep examples: loaded
+```
+
+Each line is a different piece reporting in. **Getting fewer lines is useful information, not
+failure** — it means some pieces loaded and others didn't, and you can paste what you got into an
+issue. Getting nothing like this at all means it isn't installed; see below.
+
+That's everything. It's on for every project and every new chat.
 
 ---
 
 ## Claude Code on the web
 
-Plugins install the same way, but the hook layer doesn't run in web sessions. The other layers still
-work.
+Plugins install the same way, but one piece — the per-turn reminder — doesn't run in web sessions.
+The rest works.
 
-To cover the gap, also copy the block from
-[`portable/CLAUDE.md-snippet.md`](portable/CLAUDE.md-snippet.md) into a file called `CLAUDE.md` in
-your project, and commit it. Web sessions read that file from your repository.
+To cover the gap, just ask Claude:
+
+```
+set up my rules file
+```
+
+It will create the file, put the rules in it, and tell you where it went. You don't need to know
+what the file is or where it lives.
 
 ---
 
@@ -51,40 +71,54 @@ your project, and commit it. Web sessions read that file from your repository.
 3. Open [`portable/cursor-user-rules.txt`](portable/cursor-user-rules.txt), copy everything below
    the "copy everything below this line" marker, and paste it into that box
 
-**For one project only:** copy
-[`portable/.cursor/rules/i-dont-read-code.mdc`](portable/.cursor/rules/i-dont-read-code.mdc) into a
-`.cursor/rules/` folder in that project. It's set to apply automatically, and it travels with the
-project if you use git.
+You'll see the text sitting in the box. That's it — it applies to every project from now on.
+
+**For one project only:** ask Cursor's AI `set up my rules file` and it will create the right file
+in the right place. (If you'd rather do it yourself, the file to copy is
+[`portable/.cursor/rules/i-dont-read-code.mdc`](portable/.cursor/rules/i-dont-read-code.mdc).)
 
 ---
 
 ## Codex, Windsurf, Gemini CLI, and others
 
-These read a file called `AGENTS.md` in your project folder.
+Ask the assistant:
 
-Open [`portable/AGENTS.md-snippet.md`](portable/AGENTS.md-snippet.md), copy everything below the
-marker, and paste it into `AGENTS.md` at the top level of your project. If you don't have that file
-yet, create it. If you do, add this as a new section rather than replacing what's there.
+```
+set up my rules file
+```
+
+It reads [`portable/AGENTS.md-snippet.md`](portable/AGENTS.md-snippet.md) if you point it at this
+repo, or you can paste that file's contents in yourself. Either way it ends up in a file called
+`AGENTS.md`, which is the shared convention these tools read.
 
 ---
 
 ## No plugin, just a file
 
-If you'd rather not install anything, copy the block from
-[`portable/CLAUDE.md-snippet.md`](portable/CLAUDE.md-snippet.md) into either:
+If you'd rather not install anything, ask Claude `set up my rules file` and say you want it for
+every project. It writes the rules to your personal settings file.
 
-- `CLAUDE.md` in your project — applies to that project
-- `~/.claude/CLAUDE.md` — applies to all of them
+This works, but it's the weakest option: rules in a file fade in very long conversations, where the
+plugin wouldn't.
 
-This works, but it's the weakest option: `CLAUDE.md` is added as a message rather than built into
-the system prompt, so it fades in very long conversations where the plugin wouldn't.
+---
+
+## What this costs
+
+The always-on part is free — it's built into how Claude reads your messages.
+
+The per-turn reminder adds about 400 words of instructions to each message you send. At normal use
+that's cents a day, but it isn't nothing. Say **`turn off the reminder`** to drop it; everything
+else keeps working.
+
+Nothing is sent anywhere. Everything runs on your own machine.
 
 ---
 
 ## Turning it off
 
 **For one reply:** say **"details"** or **"technical version"**. You get the full technical answer
-for that reply only, then it goes back to normal. You don't need to turn anything off to see the
+for that reply only, then it goes back to normal. You never need to uninstall it to see the
 underlying detail — that's the point.
 
 **For good:** `/plugin uninstall i-dont-read-code@i-dont-read-code`, or delete whichever file you
@@ -94,13 +128,25 @@ pasted.
 
 ## If something isn't working
 
-**`skill check` doesn't reply `i-dont-read-code is on`.** The plugin didn't load. Try
-`/plugin marketplace update i-dont-read-code`, then `/reload-plugins`. Then start a **new** chat —
-the style is read when a session starts, so an existing chat won't pick it up.
+**The first line gave an error.** Either the repository name has changed, or you have an older
+Claude Code that doesn't have `/plugin`. Type `/help` — if you don't see `plugin` listed, update
+Claude Code first. If you do see it, please open an issue with the exact error text; that means the
+name in these instructions is wrong and it's our bug, not yours.
 
-**It's on, but replies still look technical.** Two likely causes. If you've been in the same chat
-for a very long time, start a new one. If you're on Claude Code on the web, add the `CLAUDE.md`
-snippet as described above — the hook that reinforces the rules doesn't run there.
+**The second line gave an error.** The first line probably didn't finish. Run
+`/plugin marketplace list` — you should see `i-dont-read-code` in it. If you don't, run the first
+line again.
+
+**`skill check` gives nothing like the block above.** The plugin didn't load. Try
+`/plugin marketplace update i-dont-read-code`, then `/reload-plugins`. Then start a **new** chat —
+the rules are read when a chat begins, so an existing chat won't pick them up.
+
+**`skill check` gives some lines but not all of them.** Partly working. The missing line tells you
+which piece — paste what you got into an issue. Meanwhile it's still doing most of its job.
+
+**It's on, but replies still look technical.** If you've been in the same chat a very long time,
+start a new one. If you're on Claude Code on the web, ask it to `set up my rules file` as described
+above.
 
 **It's being *too* brief and you want more.** Say "details" for the technical version of any reply,
 or just tell it what you want more of. It's meant to bend to you, not the other way round.

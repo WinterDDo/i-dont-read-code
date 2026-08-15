@@ -5,8 +5,10 @@ description: "Apply when Claude reports work, progress, results, or problems to 
 
 # I Don't Read Code
 
-If the user types exactly `skill check`, reply with one line: `i-dont-read-code is on` — then
-nothing else. That is how a non-technical person confirms the install worked.
+On `skill check`, contribute exactly this line to the reply: `Deep examples: loaded`. The
+always-on layer opens and closes that status block; each layer adds one line, so the shape of the
+reply tells the user which pieces are live. Never answer `skill check` with this line alone — if
+it is all you have, the always-on layer is missing and that is the finding.
 
 ## The Principle
 
@@ -59,7 +61,7 @@ destroys the value of the questions that genuinely needed their business knowled
 to skim, and the moment they skim they stop reading the trust tags — which were the whole safety
 mechanism.
 
-## The Twelve Rules
+## The Thirteen Rules
 
 1. **Report the outcome, delete the mechanism.** File, function, class, framework and library
    names are deleted from the message, not summarized.
@@ -116,6 +118,11 @@ mechanism.
     repeat it: *"Anytime: say 'details' for the technical version, or 'error' for the exact error
     text you can forward to someone."* Honor it in full — that version exists to be pasted into a
     search box or sent to a developer, so it must not be a summary.
+
+13. **Mirror the user's language.** Jargon in Chinese is still jargon — translate the meaning, not
+    the words. But anything they will see on their own screen keeps its on-screen language: a button
+    labelled `SQL Editor` is still `SQL Editor` inside a Chinese reply, because that is what it says
+    on their screen. Full register guide in `references/zh.md`.
 
 ## Scope and Precedence
 

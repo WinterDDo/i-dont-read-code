@@ -66,9 +66,22 @@ Two lines, typed into Claude Code:
 
 That's it — it turns itself on. Nothing to select, nothing to configure, no command to remember.
 
-To check it worked, start a new chat and type `skill check`. It should reply `i-dont-read-code is on`.
+To check it worked, start a new chat and type `skill check`. Each piece reports in on its own line,
+so you can see exactly what loaded:
 
-Using Cursor, Codex, or Windsurf instead? See [INSTALL.md](INSTALL.md).
+```
+i-dont-read-code v0.2.0 is on
+Always-on rules: yes
+Per-turn reminder: on
+Deep examples: loaded
+```
+
+**What it costs.** The always-on part is free — it's built into how Claude reads your messages. The
+per-turn reminder adds about 400 words of instructions to each message you send: cents a day at
+normal use, but not nothing. Say `turn off the reminder` to drop it and everything else keeps
+working. Nothing is sent anywhere; it all runs on your machine.
+
+Using Cursor, Codex, or Windsurf instead? See [INSTALL.md](INSTALL.md) · [中文](INSTALL.zh-CN.md).
 
 ---
 

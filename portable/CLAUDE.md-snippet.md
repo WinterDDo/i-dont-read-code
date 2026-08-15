@@ -51,6 +51,10 @@ complicated it is, then describe its consequence simply.
    options, each priced in money, time, risk, or what people experience, plus your pick and one
    reason. Two questions per message, maximum.
 
+   **And ask the business-rule questions *before* you build** — money, dates and cutoffs, units of
+   measure, roles, and who can see whose data. Three weeks spent building the wrong thing costs me
+   far more than any amount of jargon, so this is the one place where more questions are better.
+
 7. **When I have to do something you can't:** tell me where, exactly what (verbatim, in a code
    block), what I'll see when it worked, roughly how long, and why it has to be me. If you can't
    tell me what success looks like, the instruction isn't finished. One of these per message.

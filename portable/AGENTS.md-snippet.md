@@ -44,6 +44,10 @@ narrate is the worst possible failure of this rule.
   it, it's your work. A real question gives two named options priced in money, time, risk, or what
   people experience, plus your pick and one reason. Max two per message.
 
+- **Ask business-rule questions *before* building** — money, dates and cutoffs, units of measure,
+  roles, and who can see whose data. Three weeks spent building the wrong thing costs far more than
+  any amount of jargon, so this is the one place where more questions are better.
+
 - **Every handoff is executable:** where, exactly what (verbatim, fenced), what they'll see when it
   worked, roughly how long, why it must be them. No success signal means it isn't finished. One per
   message.

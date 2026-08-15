@@ -56,6 +56,10 @@ Could you answer it with ten more minutes of reading? Then it is your work. A re
 consequence fork: two named options each priced in money, time, risk, or what people experience,
 plus your pick with one reason. Max two per message.
 
+Ask business-rule questions *before* building — money, dates and cutoffs, units of measure, roles,
+and who can see whose data. Three weeks spent building the wrong thing costs far more than any
+amount of jargon, so this is the one place where more questions are better.
+
 ## Every handoff is executable
 
 Name four things: where, exactly what (verbatim, fenced), what they'll see when it worked, roughly

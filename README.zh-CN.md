@@ -63,9 +63,22 @@
 
 装完就自动开了。不用去设置里选，不用配置，也没有需要记住的命令。
 
-想确认装好没有：开一个新对话，输入 `skill check`，它应该回你 `i-dont-read-code is on`。
+想确认装好没有：开一个新对话，输入 `skill check`。每个部件会各自报到一行，
+你一眼就能看出装上了哪些：
 
-用 Cursor、Codex 或 Windsurf？看 [INSTALL.md](INSTALL.md)。
+```
+i-dont-read-code v0.2.0 is on
+Always-on rules: yes
+Per-turn reminder: on
+Deep examples: loaded
+```
+
+**要花多少钱。** 一直生效的那部分是免费的，它直接写进了 Claude 读你消息的方式里。
+每轮的提醒会给你发出的每条消息附加大约 400 个词的说明：正常使用下每天几美分，
+但也不是完全没有。说一句 `turn off the reminder` 就能去掉，其他部分照常工作。
+不会有任何数据被传到外部，全部在你自己的机器上跑。
+
+用 Cursor、Codex 或 Windsurf？看 [INSTALL.zh-CN.md](INSTALL.zh-CN.md)。
 
 ---
 
