@@ -1,5 +1,5 @@
 {
-  "description": "Re-injects the plain-English rule card on every prompt, so the rules survive long sessions and context compaction.",
+  "description": "Keeps the plain-English rules in force across long sessions, and gives each new session the standing project documents so 'where are we' has an answer.",
   "hooks": {
     "UserPromptSubmit": [
       {
@@ -9,6 +9,18 @@
             "type": "command",
             "command": "${CLAUDE_PLUGIN_ROOT}/scripts/inject-rules.sh",
             "timeout": 5
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/session-start.sh",
+            "timeout": 10
           }
         ]
       }

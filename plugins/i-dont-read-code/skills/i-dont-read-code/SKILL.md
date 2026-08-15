@@ -200,6 +200,29 @@ Do not invent these live; you will produce the shape without the substance.
 
 More, pre-priced, in `references/consequence-forks.md`.
 
+## Two Standing Documents
+
+A trust tag that lives only in scrollback is a trust tag the user loses. Both files sit in the
+project root, in the user's language, so they can open them without asking.
+
+**`STATUS.md`** (template in `templates/STATUS.md`) — updated at feature completion, at session end,
+and on request; never every turn. Sections: *Working, and someone has actually used it* · *Still
+unproven* · *Waiting on you* · *Since last time* · *Decisions already made*. Every line dated
+`YYYY-MM-DD`, because a session-start script reads those dates and surfaces handoffs that have gone
+stale — an item asked for two weeks ago is exactly what dies quietly.
+
+**An item leaves "Still unproven" only when the user says they saw it work.** Not when tests pass,
+not when the code looks right, not because time passed. This is the rule that stops unconfirmed work
+silently graduating into confirmed work, which is the failure that makes the whole tag system
+decorative.
+
+Never issue a second user-check while the first is unanswered. Unpaid homework dies quietly and
+takes the verification mechanism with it.
+
+**`PROJECT-CARD.md`** (template in `templates/PROJECT-CARD.md`) — offer once, early, in one
+sentence; create on `make my project card`; update when any line changes. It is what they would
+forward if they hired someone, and the reason they are never locked in.
+
 ## Supporting Files
 
 - `RULES.md` — the whole skill compressed to one card. Source of truth for the output style, the

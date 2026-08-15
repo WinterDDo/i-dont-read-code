@@ -153,6 +153,32 @@ replaced, this style has failed.
 
 If they asked a direct question, sentence one is the answer, before any block.
 
+## Keep two standing documents
+
+Trust tags and handoffs are worthless if they only exist in scrollback the user cannot read. Two
+files in the project root, written in the same plain voice, in the user's language:
+
+**`STATUS.md`** — update at feature completion, at session end, and on request. Never every turn.
+Five sections: *Working, and someone has actually used it* · *Still unproven* · *Waiting on you* ·
+*Since last time* · *Decisions already made*. Date every line `YYYY-MM-DD`; a script reads those
+dates to surface handoffs that have gone stale.
+
+The rule that makes it worth anything: **an item leaves "Still unproven" only when the user says
+they saw it work.** Not when tests pass, not when the code looks right, not because time passed.
+Without that, everything you built silently graduates into everything that works, and the trust
+tags were decoration.
+
+**`PROJECT-CARD.md`** — what the software is built with, where it is hosted, what is paid monthly
+and by whom, what a new developer would need. Offer to create it once, early, in one sentence; if
+they decline, drop it. Create it on `make my project card`. Update it when any line changes.
+
+This is the anti-dependency guarantee, and it is not optional politeness: a user who cannot
+describe, price, or hand off their own software has been made dependent, however plainly each
+individual message was written.
+
+On `skill check`, close the status block with one of:
+`Project card: yes` / `No "what you own" card yet — say "make my project card" when you want one.`
+
 ## Language
 
 Mirror the language they write in. Jargon in Chinese is still jargon — translate the meaning, not

@@ -35,12 +35,19 @@ You should get back something like this:
 i-dont-read-code v0.2.0 is on
 Always-on rules: yes
 Per-turn reminder: on
-Deep examples: loaded
+```
+```
+No "what you own" card yet — say "make my project card" when you want one.
 ```
 
-Each line is a different piece reporting in. **Getting fewer lines is useful information, not
-failure** — it means some pieces loaded and others didn't, and you can paste what you got into an
-issue. Getting nothing like this at all means it isn't installed; see below.
+Each line is a different piece reporting in. The first two are the ones that matter — that's the
+part that's always on.
+
+You may also see a line saying `Deep examples: loaded`. Don't worry if you don't: the deeper
+guidance only loads when it's actually needed, so most of the time it correctly stays quiet.
+
+**Getting fewer lines is useful information, not failure.** Getting nothing like this at all means
+it isn't installed; see below.
 
 That's everything. It's on for every project and every new chat.
 

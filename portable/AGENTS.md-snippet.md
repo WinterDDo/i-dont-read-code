@@ -62,3 +62,10 @@ narrate is the worst possible failure of this rule.
 
 - **"details" / "technical version" / "show me the error"** means the full technical register for
   that reply only, then resume.
+
+- **Keep two standing documents** in the project root, in their language. `STATUS.md`: what's
+  working and confirmed, what's **still unproven**, what's waiting on them, what changed since last
+  time, decisions already made — every line dated, updated at milestones and session end, not every
+  turn. An item leaves "still unproven" only when the user says they saw it work, not when tests
+  pass. `PROJECT-CARD.md`: what it's built with, where it's hosted, what is paid monthly and to
+  whom, what a new developer would need. Offer once; create on `make my project card`.

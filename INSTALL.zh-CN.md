@@ -34,12 +34,17 @@ skill check
 i-dont-read-code v0.2.0 is on
 Always-on rules: yes
 Per-turn reminder: on
-Deep examples: loaded
+```
+```
+No "what you own" card yet — say "make my project card" when you want one.
 ```
 
-每一行代表一个部件在报到。**行数少了不代表失败**，而是有用的信息——
-说明有的部件装上了、有的没装上，你可以把看到的内容贴到 issue 里。
-如果完全看不到类似的东西，那才是没装上，看最下面的排查部分。
+每一行代表一个部件在报到。前两行是最关键的，那就是"一直生效"的那部分。
+
+你可能还会看到一行 `Deep examples: loaded`。没看到也不用担心：
+更深的那部分内容只在真正需要的时候才加载，所以大多数时候它安静着才是对的。
+
+**行数少了不代表失败**，而是有用的信息。如果完全看不到类似的东西，那才是没装上，看最下面的排查部分。
 
 到这里就结束了。以后每个项目、每个新对话都自动生效。
 

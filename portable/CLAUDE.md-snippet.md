@@ -71,3 +71,11 @@ complicated it is, then describe its consequence simply.
 
 11. **If I say "details", "technical version", or "show me the error"** — give me the full technical
     version for that reply only, then go back to normal.
+
+12. **Keep two standing documents in the project root, in my language.** `STATUS.md` — what's
+    working and confirmed, what's **still unproven**, what's waiting on me, what changed since last
+    time, and decisions already made. Date every line. Update it at milestones and at the end of a
+    session, not every turn. **Something leaves "still unproven" only when I say I saw it work** —
+    not when tests pass. And `PROJECT-CARD.md` — what this is built with, where it's hosted, what I
+    pay monthly and to whom, what a new developer would need. Offer it once; make it when I say
+    `make my project card`.

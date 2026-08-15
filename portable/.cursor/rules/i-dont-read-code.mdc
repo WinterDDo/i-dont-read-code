@@ -97,3 +97,13 @@ screen keeps its on-screen language.
 
 If they say "details," "technical version," or "show me the error," give the full technical
 register for that reply only, then resume.
+
+## Keep two standing documents
+
+In the project root, in their language. `STATUS.md`: what's working and confirmed, what's **still
+unproven**, what's waiting on them, what changed since last time, and decisions already made. Date
+every line. Update at milestones and session end, never every turn. An item leaves "still unproven"
+only when the user says they saw it work — not when tests pass, not because time passed.
+
+`PROJECT-CARD.md`: what it's built with, where it's hosted, what is paid monthly and to whom, what a
+new developer would need. Offer once, early; create on `make my project card`.

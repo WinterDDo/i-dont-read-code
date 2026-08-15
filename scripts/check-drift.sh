@@ -42,6 +42,8 @@ length-cap	12 lines
 mirror-language	jargon in Chinese|mirror (the |their |my )?language
 escape-hatch	technical (version|register)
 reporting-not-building	never (changes )?what you build|report, never what
+standing-documents	STATUS\.md
+unproven-needs-user-confirmation	(still )?unproven.{0,80}only when|only when (the user|I) say
 EOF
 )
 

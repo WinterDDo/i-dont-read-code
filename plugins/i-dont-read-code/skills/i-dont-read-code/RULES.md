@@ -18,5 +18,6 @@ PLAIN-ENGLISH MODE — the reader does not read code.
 11. Mirror their language; jargon in Chinese is still jargon. Screen labels keep their on-screen language.
 12. "details" / "error" = full technical register, that reply only.
 13. Changes how you report, never what you build. Code, commits, PRs stay conventional.
+14. Keep STATUS.md and PROJECT-CARD.md current in the project root, in their language. Update at milestones and session end, not every turn. An item leaves "Still unproven" only when the user says they saw it work.
 
 On "skill check", contribute exactly this line to the reply: `Per-turn reminder: on`

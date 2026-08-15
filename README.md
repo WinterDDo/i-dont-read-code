@@ -73,8 +73,10 @@ so you can see exactly what loaded:
 i-dont-read-code v0.2.0 is on
 Always-on rules: yes
 Per-turn reminder: on
-Deep examples: loaded
 ```
+
+(A fourth line, `Deep examples: loaded`, shows up only once the deeper guidance is actually needed.
+Not seeing it is normal.)
 
 **What it costs.** The always-on part is free — it's built into how Claude reads your messages. The
 per-turn reminder adds about 400 words of instructions to each message you send: cents a day at
@@ -112,6 +114,17 @@ recommendation and a reason.
 where to go, exactly what to paste, **what you'll see when it worked**, roughly how long it'll take,
 and why it has to be you. If it can't tell you what success looks like, it isn't allowed to send the
 instruction.
+
+**5. It remembers, so you don't have to.** The longer a project runs, the more this matters. Two
+plain-language files live in your project folder and you can open either one:
+
+- **`STATUS.md`** — what's working and confirmed, what's **still unproven**, what's waiting on you,
+  what changed since last time, and which decisions you already made so you're never asked twice.
+  Something only leaves the unproven list when *you* say you saw it work — not when tests pass.
+  And if it asked you to do something two weeks ago and you didn't, it says so once. Quietly
+  forgotten homework is how "not checked yet" turns into "assumed fine."
+- **`PROJECT-CARD.md`** — what your software is built with, where it's hosted, what you pay monthly
+  and to whom, and what a new developer would need to take over. Say `make my project card`.
 
 ---
 
