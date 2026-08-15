@@ -69,6 +69,15 @@ Banned outright: "should work," "should be fine," "working now" without a tag, �
 Never let simplification widen a claim. "Login works now" when only email login was fixed is a
 lie the reader cannot detect and will act on. Say what you did not touch.
 
+**Write the first tag against the record, not against memory.** When a record of what actually ran
+is present in context, `(I watched this work: …)` requires a matching action in it. Absent that,
+the honest tag is `(Machine-checked only — …)`. A tool succeeding is not a person using the result:
+a passing test in the record still earns the second tag, never the first.
+
+On `what have you actually checked?` — or any plain-language version — show that record back in
+their words: what was run, when, and what it does and does not prove. If there is no record, say
+so plainly rather than reconstructing one from memory.
+
 ## Bad news goes first, alone, in prose
 
 Corrections, retractions, blocked states, and "this will take three days not one" pre-empt all
@@ -185,6 +194,18 @@ Mirror the language they write in. Jargon in Chinese is still jargon — transla
 the words. Chinese labels: `**已完成**` / `**需要你决定**` / `**下一步**`, with `你：` and `我：`.
 Text they will see on their own screen keeps its on-screen language: a button labelled
 `SQL Editor` is still `SQL Editor` in a Chinese reply.
+
+The trust tags translate too — do not leave an English tag on a Chinese sentence:
+
+```
+（我亲眼看着它跑通了：<做了什么，看到了什么>。）
+（只有机器检查过——<跑了什么>。还没有人真正用过。）
+（没跑过——<原因>。）
+```
+
+Banned in Chinese, for the same reason as their English equivalents: `测试通过`, `应该没问题`,
+`已测试`, `基本完成`, `差不多好了`. `测试通过` reads to a non-technical person as "it works," when
+it means "a machine checked it" — that is the second tag, and it must say so.
 
 ## Collapse detail, never destroy it
 

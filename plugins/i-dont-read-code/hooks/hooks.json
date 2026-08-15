@@ -1,5 +1,5 @@
 {
-  "description": "Keeps the plain-English rules in force across long sessions, and gives each new session the standing project documents so 'where are we' has an answer.",
+  "description": "Keeps the plain-English rules in force across long sessions, gives each new session the standing project documents, and records what actually ran so trust tags can be checked rather than trusted.",
   "hooks": {
     "UserPromptSubmit": [
       {
@@ -21,6 +21,30 @@
             "type": "command",
             "command": "${CLAUDE_PLUGIN_ROOT}/scripts/session-start.sh",
             "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash|Write|Edit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/record-action.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "matcher": "Bash|Write|Edit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/record-action.sh",
+            "timeout": 5
           }
         ]
       }

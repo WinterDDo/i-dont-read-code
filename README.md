@@ -105,6 +105,16 @@ and it's the part no other tool does. Every claim of "done" now ends with one of
 "The tests passed" is the middle tag, never the first one. That distinction is invisible in normal
 AI output, and it's the one that decides whether you should tell your team something is ready.
 
+**And the tag is checked, not just promised.** A note written by the same AI that did the work,
+about its own work, is an honour system — which is the exact problem this whole project exists to
+fix. So it keeps a running record of what actually ran, and can only claim "I watched this work"
+when a matching action is in that record. Ask **"what have you actually checked?"** any time and it
+will show you the list in plain language.
+
+*What that means on disk:* a folder called `.i-dont-read-code` in your project holds a plain text
+log of commands run and files changed, on your machine only. Nothing is sent anywhere. Delete the
+folder any time; it rebuilds itself.
+
 **3. It asks you questions you can answer.** Not "Postgres or SQLite?" — a question you can't
 answer, so you say "you decide," and it stops asking anything at all. Instead: two options, each
 priced in money, time, risk, or what your staff and customers will experience, plus its
