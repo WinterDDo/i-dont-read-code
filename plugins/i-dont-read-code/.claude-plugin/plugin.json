@@ -1,0 +1,25 @@
+{
+  "name": "i-dont-read-code",
+  "displayName": "I Don't Read Code",
+  "version": "0.1.0",
+  "description": "Plain-English mode for people who don't read code. Reports outcomes instead of mechanism, tags every claim with how it was actually verified, and says what's done, what needs deciding, and what only you can do.",
+  "author": {
+    "name": "WinterDDo",
+    "url": "https://github.com/WinterDDo"
+  },
+  "homepage": "https://github.com/WinterDDo/i-dont-read-code",
+  "repository": "https://github.com/WinterDDo/i-dont-read-code",
+  "license": "MIT",
+  "keywords": [
+    "plain-language",
+    "plain-english",
+    "non-technical",
+    "no-code",
+    "vibe-coding",
+    "beginner-friendly",
+    "accessibility",
+    "output-style",
+    "claude-code",
+    "agent-skills"
+  ]
+}

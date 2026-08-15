@@ -1,0 +1,17 @@
+{
+  "description": "Re-injects the plain-English rule card on every prompt, so the rules survive long sessions and context compaction.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/inject-rules.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}
